@@ -1,4 +1,4 @@
-;File: LAB1B-odd.asm
+;File: LAB1B.asm
 ;Author: Preston Maness
 ;Class: EE3420
 ;Professor: Dr. Salamy
@@ -61,5 +61,5 @@ LOOP:
 PARITY_LOOP:
 
 	LDA #0;
-	STAA PARCHECK				; set PARITY var to one
+	STAA PARCHECK				; set PARITY var to zero
 	RTS					; end program
