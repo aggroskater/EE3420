@@ -72,18 +72,42 @@ AVERAGE:
 	
 ;-------------------------------------------------
 
-MAX:
+FIND_MAX:
 
 	LDX ITR		; iterator
-	LDY LIM		; limitor
-	LDAA ARRAY,X	; load array[0]
-	;still need to finish
+	LDY --LIM	; limitor, minus one, since we're comparing i with i+1
+	MOVB ARRAY,X,MAX; set initial MAX 
+	LDAA ARRAY,X	; load array[i]
+	CMPA ARRAY,+X	; compare array[i] with array[i+1]
+	BGT MAX_BIGGER	; if array[i+1] > array[i], update MAX
+	
+	DBNE Y, FIND_MAX; 	
+	BRA MIN		; don't want to do MAX_BIGGER. Go to MIN.
+			; I need a bette way to handle branching and
+			; not "running into" code I don't want to hit.
+
+MAX_BIGGER:
+
+	MOVB ARRAY,X,MAX; recall that +X preincrements, so X is already
+			; pointing to the second 
 
 ;-------------------------------------------------
 
-MIN:
+FIND_MIN:
 
-	;same concept as up there
+	LDX ITR         ; iterator
+        LDY --LIM       ; limitor, minus one, since we're comparing i with i+1
+        MOVB ARRAY,X,MIN; set initial MIN 
+        LDAA ARRAY,X    ; load array[i]
+        CMPA ARRAY,+X   ; compare array[i] with array[i+1]
+        BLT MIN_SMALLER ; if array[i+1] < array[i], update MIN
+
+        DBNE Y, FIND_MIN;       
+        RTS 	        ; done with program. exit.
+
+MIN_LESS:
+
+	MOVB ARRAY,X,MIN
 
 ;-------------------------------------------------
 
