@@ -24,4 +24,5 @@
 ; 3.) Divide number by all integers from 2 to truncate(square root)
 ; 4.) If no remainder, not prime.
 
-
+;http://books.google.com/books?id=5atwJG7D_HMC&pg=PA170&lpg=PA170&dq=hcs12+square+root&source=bl&ots=KhZ_VGqzZB&sig=2eBsbE3QnAE1iN7x92xENS-guKw&hl=en&sa=X&ei=OCxhUN-QE4Hi2gWl-YGoCw&ved=0CB0Q6AEwAA#v=onepage&q=hcs12%20square%20root&f=false
+;go to page 170. it has an example. however, it makes use of the stack.
